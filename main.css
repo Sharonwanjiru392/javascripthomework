@@ -488,3 +488,16 @@ footer {
   width: 100%;
   background-color: var(--light-background-color);
 }
+/* Add this to your main.css */
+
+.wrapper {
+  display: none;
+  /* other styles */
+}
+
+.wrapper.active {
+  display: block;
+  /* other styles */
+}
+
+/* Style the gallery and products sections as needed */
