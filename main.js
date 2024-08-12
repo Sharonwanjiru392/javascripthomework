@@ -55,5 +55,95 @@ document.addEventListener('DOMContentLoaded', function () {
   //weather section
   
 
+  // ------------------------greetings--------------
+  
+  
+  
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Fetch weather data (simulated)
+  function fetchWeather() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          temperature: 25,
+          condition: "Sunny"
+        });
+      }, 1000);
+    });
+  }
+
+  // Function to get the appropriate greeting based on the current time
+  function getGreeting() {
+    const now = new Date();
+    const hours = now.getHours();
+    
+    if (hours < 12) {
+      return "Good Morning!";
+    } else if (hours < 18) {
+      return "Good Afternoon!";
+    } else {
+      return "Good Evening!";
+    }
+  }
+
+  // Function to update the weather display
+  function updateWeatherDisplay(data) {
+    const isCelsius = celsiusRadio.checked;
+    let temperatureText;
+    
+    if (isCelsius) {
+      temperatureText = `${data.temperature}°C`;
+    } else {
+      const fahrenheit = (data.temperature * 9/5 + 32).toFixed(1);
+      temperatureText = `${fahrenheit}°F`;
+    }
+    
+    weatherElement.textContent = `Current temperature: ${temperatureText}, Condition: ${data.condition}`;
+  }
+
+  // Function to update the local time display
+  function updateLocalTime() {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+
+    document.querySelector('[data-time="hours"]').textContent = hours;
+    document.querySelector('[data-time="minutes"]').textContent = minutes;
+    document.querySelector('[data-time="seconds"]').textContent = seconds;
+  }
+
+  // Elements
+  const weatherElement = document.getElementById("weather");
+  const celsiusRadio = document.getElementById("celsius");
+  const fahrRadio = document.getElementById("fahr");
+  const greetingElement = document.getElementById("greeting");
+
+  // Display the greeting
+  greetingElement.textContent = getGreeting();
+
+  // Fetch and display weather data
+  fetchWeather().then((data) => {
+    updateWeatherDisplay(data);
+  });
+
+  // Update weather display when temperature unit changes
+  function updateWeatherUnit() {
+    fetchWeather().then((data) => {
+      updateWeatherDisplay(data);
+    });
+  }
+
+  celsiusRadio.addEventListener("change", updateWeatherUnit);
+  fahrRadio.addEventListener("change", updateWeatherUnit);
+
+  // Update local time every second
+  setInterval(updateLocalTime, 1000);
+  updateLocalTime(); // Initial call to display time immediately
+});
+
+
 
