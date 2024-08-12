@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Gallery and Products Data
     const images = [
       { src: 'assets/gallery/image1.jpg', alt: 'Image 1' },
-      { src: 'path/gallery/image2.jpg', alt: 'Image 2' },
-      { src: 'path/gallery/image3.jpg', alt: 'Image 3' },
+      { src: 'assets/gallery/image2.jpg', alt: 'Image 2' },
+      { src: 'assets/gallery/image3.jpg', alt: 'Image 3' },
     ];
     const products = [
       { name: 'Product 1', type: 'Paid' },
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateWeatherInfo() {
       weatherInfo.textContent = celsiusInput.checked ? 
         `Temperature: ${currentTemperature.celsius}°C` : 
-        `Temperature: ${currentTemperature.fahrenheit}°F`;
+        `Temperature: ${currentTemperature.fahrenheit}K`;
     }
   
     celsiusInput.addEventListener('change', updateWeatherInfo);
