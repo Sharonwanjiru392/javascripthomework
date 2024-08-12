@@ -60,10 +60,10 @@ document.addEventListener('DOMContentLoaded', function () {
   
   
 });
+//----------------------------------------------------  // Fetch weather data (simulated) ------------------------------
 
 
 document.addEventListener("DOMContentLoaded", function() {
-  // Fetch weather data (simulated)
   function fetchWeather() {
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -74,8 +74,8 @@ document.addEventListener("DOMContentLoaded", function() {
       }, 1000);
     });
   }
+/*  Function to get the appropriate greeting based on the current time */
 
-  // Function to get the appropriate greeting based on the current time
   function getGreeting() {
     const now = new Date();
     const hours = now.getHours();
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  // Function to update the weather display
+  /* Function to update the weather display  */
   function updateWeatherDisplay(data) {
     const isCelsius = celsiusRadio.checked;
     let temperatureText;
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function() {
     weatherElement.textContent = `Current temperature: ${temperatureText}, Condition: ${data.condition}`;
   }
 
-  // Function to update the local time display
+  /*Function to update the local time display*/
   function updateLocalTime() {
     const now = new Date();
     const hours = now.getHours().toString().padStart(2, '0');
