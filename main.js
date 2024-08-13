@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 //----------------------------------------------------  // Fetch weather data (simulated) ------------------------------
 
-
+// this was a headache
 document.addEventListener("DOMContentLoaded", function() {
   function fetchWeather() {
     return new Promise((resolve) => {
@@ -144,6 +144,6 @@ document.addEventListener("DOMContentLoaded", function() {
   setInterval(updateLocalTime, 1000);
   updateLocalTime(); // Initial call to display time immediately
 });
-
+//finally am done with this work
 
 
