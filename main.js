@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Navigation Menu Toggle
+  // Navigation Menu Toggle  
   const openNavMenuButton = document.getElementById('open-nav-menu');
   const closeNavMenuButton = document.getElementById('close-nav-menu');
   const navMenuWrapper = document.querySelector('.wrapper');
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
   closeNavMenuButton.addEventListener('click', function () {
     navMenuWrapper.classList.remove('nav-open');
   });
-  /* time or let say clock*/
+  /* time or let say clock*/  //javascript this is a headache
   function updateLocalTime() {
     const now = new Date();
     const hours = now.getHours().toString().padStart(2, '0');
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 //----------------------------------------------------  // Fetch weather data (simulated) ------------------------------
 
-// this was a headache
+// this was a headache 
 document.addEventListener("DOMContentLoaded", function() {
   function fetchWeather() {
     return new Promise((resolve) => {
@@ -116,21 +116,21 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelector('[data-time="seconds"]').textContent = seconds;
   }
 
-  // Elements
+  // Elements that need to be rendered
   const weatherElement = document.getElementById("weather");
   const celsiusRadio = document.getElementById("celsius");
   const fahrRadio = document.getElementById("fahr");
   const greetingElement = document.getElementById("greeting");
 
-  // Display the greeting
+  // Display the greeting message
   greetingElement.textContent = getGreeting();
 
-  // Fetch and display weather data
+  // Fetch and display weather data fetch it slowly
   fetchWeather().then((data) => {
     updateWeatherDisplay(data);
   });
 
-  // Update weather display when temperature unit changes
+  // Update weather display when temperature unit changes take it slow
   function updateWeatherUnit() {
     fetchWeather().then((data) => {
       updateWeatherDisplay(data);
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function() {
   celsiusRadio.addEventListener("change", updateWeatherUnit);
   fahrRadio.addEventListener("change", updateWeatherUnit);
 
-  // Update local time every second
+  // Update local time every second and please be carefull with this
   setInterval(updateLocalTime, 1000);
   updateLocalTime(); // Initial call to display time immediately
 });
